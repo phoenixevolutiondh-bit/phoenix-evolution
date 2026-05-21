@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Evolution | RH que vira resultado de negócio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --creme:#FAF5EE;--champagne:#E8D5A3;--areia:#B09070;--ouro:#C9A86C;--ouro-env:#8C7355;
+  --marrom:#3D1A0A;--noite:#1A0E05;--azul:#112240;--cinza:#6B6B6B;--linha:#E0DFDD;
+  --branco:#FFFFFF;--ft:'Cormorant Garamond',Georgia,serif;--fb:'DM Sans',Helvetica,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--noite);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 6vw;background:rgba(250,245,238,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid var(--linha);}
+.nav-logo{font-family:var(--ft);font-size:1.2rem;font-weight:400;color:var(--noite);text-decoration:none;display:flex;flex-direction:column;gap:1px}
+.nav-logo span{font-family:var(--fb);font-size:0.58rem;font-weight:300;letter-spacing:0.24em;text-transform:uppercase;color:var(--areia)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:0.72rem;font-weight:300;letter-spacing:0.14em;text-transform:uppercase;color:var(--cinza);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--noite)}
+.nav-cta{font-family:var(--fb);font-size:0.7rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--branco);background:var(--noite);padding:.55rem 1.4rem;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--marrom)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 6vw 5rem;background:var(--creme);position:relative;}
+.hero-inner{max-width:640px;position:relative;z-index:1}
+.eyebrow{font-family:var(--fb);font-size:0.66rem;font-weight:300;letter-spacing:0.28em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.9rem;margin-bottom:2rem}
+.eyebrow::before{content:'';width:32px;height:0.5px;background:var(--ouro)}
+.hero h1{font-family:var(--ft);font-size:clamp(3rem,6vw,5.2rem);font-weight:300;line-height:1.08;color:var(--noite);margin-bottom:1.6rem}
+.hero h1 em{font-style:italic;color:var(--ouro-env)}
+.hero-sub{font-size:.95rem;font-weight:300;color:var(--cinza);max-width:420px;line-height:1.85;margin-bottom:3rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-dk{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;background:var(--noite);color:var(--branco);font-family:var(--fb);font-size:.72rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-dk:hover{background:var(--marrom)}
+.btn-ol{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;border:0.5px solid var(--noite);color:var(--noite);font-family:var(--fb);font-size:.72rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
+.btn-ol:hover{background:var(--noite);color:var(--branco)}
+.hero-num{position:absolute;right:0;top:50%;transform:translateY(-50%);font-family:var(--ft);font-size:clamp(8rem,14vw,16rem);font-weight:300;color:var(--champagne);line-height:1;pointer-events:none;opacity:0.5;letter-spacing:-0.04em;}
+.div-line{width:100%;height:0.5px;background:var(--linha)}
+section{padding:6rem 6vw}
+.tag{font-family:var(--fb);font-size:.65rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.tag::before{content:'';width:26px;height:.5px;background:var(--ouro)}
+h2.sec{font-family:var(--ft);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.12;color:var(--noite);margin-bottom:1rem}
+h2.sec em{font-style:italic;color:var(--ouro-env)}
+.desc{font-size:.9rem;font-weight:300;color:var(--cinza);max-width:420px;line-height:1.85}
+#sobre{background:var(--branco);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.sobre-quote{font-family:var(--ft);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--noite);line-height:1.5;margin-bottom:1.6rem;padding-left:1.4rem;border-left:1.5px solid var(--ouro)}
+.sobre-author{font-family:var(--fb);font-size:.7rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--areia);padding-left:1.4rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem;padding-left:1.4rem}
+.badge{font-size:.62rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border:0.5px solid var(--linha);color:var(--cinza)}
+#servicos{background:var(--creme)}
+.serv-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;gap:2rem;flex-wrap:wrap}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);border:0.5px solid var(--linha)}
+.serv{background:var(--creme);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:background .3s}
+.serv::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ouro);transition:width .4s}
+.serv:hover{background:var(--branco)}
+.serv:hover::after{width:100%}
+.serv-n{font-family:var(--ft);font-size:.9rem;font-weight:300;color:var(--ouro);opacity:.6;margin-bottom:.9rem}
+.serv h3{font-family:var(--ft);font-size:1.3rem;font-weight:400;color:var(--noite);margin-bottom:.6rem;line-height:1.2}
+.serv p{font-size:.83rem;font-weight:300;color:var(--cinza);line-height:1.75}
+#essencia{background:var(--branco)}
+.ess-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start}
+.ess-frase{font-family:var(--ft);font-size:1.2rem;font-weight:300;font-style:italic;color:var(--noite);line-height:1.6;margin-top:2rem;padding-top:2rem;border-top:0.5px solid var(--linha)}
+.vals-list{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+.val-row{display:flex;align-items:baseline;gap:1.4rem;padding:1.1rem 0;border-bottom:0.5px solid var(--linha)}
+.val-row:first-child{border-top:0.5px solid var(--linha)}
+.val-num{font-family:var(--ft);font-size:.85rem;color:var(--ouro);opacity:.7;min-width:1.2rem}
+.val-nome{font-family:var(--ft);font-size:1.05rem;font-weight:400;color:var(--noite);min-width:90px}
+.val-desc{font-size:.83rem;font-weight:300;color:var(--cinza);line-height:1.65}
+#contato{background:var(--azul)}
+.cont-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.cont-tag{font-family:var(--fb);font-size:.65rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.cont-tag::before{content:'';width:26px;height:.5px;background:var(--ouro)}
+.cont-h2{font-family:var(--ft);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--branco);margin-bottom:1rem;line-height:1.12}
+.cont-h2 em{font-style:italic;color:var(--ouro)}
+.cont-desc{font-size:.9rem;font-weight:300;color:var(--champagne);opacity:.7;max-width:360px;line-height:1.85}
+.channels{display:flex;flex-direction:column;gap:.7rem;margin-top:2.4rem}
+.ch{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;border:0.5px solid rgba(201,168,108,0.2);text-decoration:none;color:var(--branco);position:relative;overflow:hidden;transition:border-color .25s,background .25s}
+.ch::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ouro);opacity:0;transition:opacity .25s}
+.ch:hover{background:rgba(201,168,108,.06);border-color:rgba(201,168,108,.4)}
+.ch:hover::before{opacity:1}
+.ch-ico{width:36px;height:36px;background:rgba(201,168,108,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-ico svg{width:16px;height:16px;stroke:var(--ouro);fill:none;stroke-width:1.5}
+.ch-lbl{font-size:.62rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.7;margin-bottom:.1rem}
+.ch-val{font-size:.9rem;color:var(--branco)}
+.ch-arr{margin-left:auto;color:var(--ouro);opacity:.3;transition:opacity .25s,transform .25s}
+.ch:hover .ch-arr{opacity:.9;transform:translateX(4px)}
+.form-wrap{margin-top:0}
+.form-title{font-family:var(--ft);font-size:1.4rem;font-weight:300;color:var(--branco);margin-bottom:1.8rem}
+.fg{margin-bottom:.9rem}
+.fg label{display:block;font-size:.62rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.8;margin-bottom:.4rem}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(201,168,108,.05);border:0.5px solid rgba(201,168,108,.2);color:var(--branco);font-family:var(--fb);font-size:.88rem;font-weight:300;padding:.75rem .9rem;outline:none;transition:border-color .2s;appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(201,168,108,.5)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
+.fg textarea{height:85px;resize:vertical}
+.fg select option{background:var(--azul)}
+.f-btn{width:100%;padding:.95rem;background:var(--ouro);color:var(--noite);font-family:var(--fb);font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity .2s;margin-top:.6rem}
+.f-btn:hover{opacity:.88}
+footer{padding:2.2rem 6vw;display:flex;justify-content:space-between;align-items:center;background:var(--azul);border-top:0.5px solid rgba(201,168,108,.15);flex-wrap:wrap;gap:1rem}
+.f-logo{font-family:var(--ft);font-size:1rem;font-weight:300;color:var(--ouro)}
+.f-copy{font-size:.68rem;font-weight:300;color:var(--champagne);opacity:.5;letter-spacing:.04em}
+.f-links{display:flex;gap:1.2rem}
+.f-links a{font-size:.66rem;font-weight:300;letter-spacing:.1em;color:var(--champagne);opacity:.5;text-decoration:none;transition:opacity .2s}
+.f-links a:hover{opacity:1}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero-inner>*{animation:fadeUp .7s ease both}
+.hero-inner>*:nth-child(1){animation-delay:.08s}
+.hero-inner>*:nth-child(2){animation-delay:.2s}
+.hero-inner>*:nth-child(3){animation-delay:.32s}
+.hero-inner>*:nth-child(4){animation-delay:.44s}
+@media(max-width:900px){.nav-links{display:none}#sobre{grid-template-columns:1fr}.serv-grid{grid-template-columns:1fr 1fr}.ess-inner{grid-template-columns:1fr}.cont-inner{grid-template-columns:1fr;gap:3rem}.hero-num{display:none}}
+@media(max-width:580px){section{padding:4rem 5vw}.serv-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#" class="nav-logo">
+    Phoenix Evolution
+<span>Design Humano Estratégico</span>
+</a>
+<ul class="nav-links">
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#essencia">Valores</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+<a href="https://wa.me/5521992488581" target="_blank" class="nav-cta">Falar conosco</a>
+</nav>
+<section class="hero">
+<div class="hero-num">RH</div>
+<div class="hero-inner">
+<p class="eyebrow">Consultoria Estratégica de RH</p>
+<h1>RH que vira<br><em>resultado</em><br>de negócio.</h1>
+<p class="hero-sub">Estruturamos pessoas, cultura e processos para sustentar resultado de negócio. Do zero à maturidade.</p>
+<div class="hero-btns">
+<a href="https://wa.me/5521992488581" target="_blank" class="btn-dk">
+        Iniciar projeto
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+</a>
+<a href="#servicos" class="btn-ol">Ver serviços</a>
+</div>
+</div>
+</section>
+<div class="div-line"></div>
+<section id="sobre">
+<div class="sobre-left">
+<p class="sobre-quote">"Cada empresa carrega o potencial de se reinventar. Nosso papel é estruturar as pessoas e a cultura para que isso aconteça com intenção e resultado."</p>
+<p class="sobre-author">Suly Farinazzo &mdash; CEO &amp; Fundadora</p>
+<div class="badges">
+<span class="badge">30+ anos em RH</span>
+<span class="badge">DISC Certified</span>
+<span class="badge">Neurociência Aplicada</span>
+<span class="badge">IA aplicada ao RH</span>
+<span class="badge">Pós PUC Campinas</span>
+</div>
+</div>
+<div>
+<p class="tag">Sobre</p>
+<h2 class="sec">RH como <em>vantagem</em> competitiva</h2>
+<p class="desc" style="margin-bottom:1.4rem">A Phoenix Evolution nasceu da convicção de que RH estratégico é vantagem competitiva real, não suporte administrativo. Atuamos na interface entre pessoas, cultura, tecnologia e negócio.</p>
+<p class="desc">Com base no Rio de Janeiro, atendemos PMEs em todo o Brasil — da implantação do RH ao processo seletivo com IA, do plano de cargos ao onboarding.</p>
+</div>
+</section>
+<div class="div-line"></div>
+<section id="servicos">
+<div class="serv-hdr">
+<div>
+<p class="tag">Serviços</p>
+<h2 class="sec">O que <em>entregamos</em></h2>
+</div>
+<p class="desc" style="max-width:280px">Soluções end-to-end desenhadas para o estágio e o desafio real da sua empresa.</p>
+</div>
+<div class="serv-grid">
+<div class="serv"><div class="serv-n">01</div><h3>Implantação de RH</h3><p>Estruturação completa do departamento: processos, políticas, ferramentas e indicadores alinhados à estratégia do negócio.</p></div>
+<div class="serv"><div class="serv-n">02</div><h3>Recrutamento e Seleção</h3><p>Processos com metodologia comportamental, assessment DISC e IA para eficiência, assertividade e redução de turnover.</p></div>
+<div class="serv"><div class="serv-n">03</div><h3>Cultura Organizacional</h3><p>Diagnóstico, design e implementação de cultura: valores, rituais, clima, comunicação interna e engajamento com métricas.</p></div>
+<div class="serv"><div class="serv-n">04</div><h3>Cargos e Salários</h3><p>Estrutura de cargos, grades salariais, política de remuneração e plano de carreira que retêm talentos e sustentam crescimento.</p></div>
+<div class="serv"><div class="serv-n">05</div><h3>Gestão de Performance</h3><p>Ciclos de avaliação, metas, feedbacks estruturados e desenvolvimento de liderança baseado em dados comportamentais.</p></div>
+<div class="serv"><div class="serv-n">06</div><h3>IA Aplicada ao RH</h3><p>Automação de processos, assessments inteligentes e ferramentas de IA integradas à operação de gestão de pessoas.</p></div>
+</div>
+</section>
+<div class="div-line"></div>
+<section id="essencia">
+<div class="ess-inner">
+<div class="ess-left">
+<p class="tag">Essência</p>
+<h2 class="sec">Propósito que orienta <em>decisão</em></h2>
+<p class="desc">A marca não vende peças de RH. Ela organiza gente, cultura e processos para sustentar resultado de negócio.</p>
+<p class="ess-frase">Isso aproxima a empresa do resultado que ela quer construir?</p>
+</div>
+<div class="vals-list">
+<div class="val-row"><span class="val-num">01</span><span class="val-nome">Propósito</span><span class="val-desc">Entrar com intenção clara e objetivo bem definido.</span></div>
+<div class="val-row"><span class="val-num">02</span><span class="val-nome">Pessoas</span><span class="val-desc">Colocar as pessoas certas no lugar certo, com direção.</span></div>
+<div class="val-row"><span class="val-num">03</span><span class="val-nome">Estratégia</span><span class="val-desc">Transformar RH em vantagem competitiva real.</span></div>
+<div class="val-row"><span class="val-num">04</span><span class="val-nome">Clareza</span><span class="val-desc">Fazer líderes, times e processos falarem a mesma língua.</span></div>
+<div class="val-row"><span class="val-num">05</span><span class="val-nome">Evolução</span><span class="val-desc">Avançar com aprendizado, sem voltar ao ponto de partida.</span></div>
+</div>
+</div>
+</section>
+<section id="contato">
+<div class="cont-inner">
+<div>
+<p class="cont-tag">Contato</p>
+<h2 class="cont-h2">Vamos <em>conversar</em></h2>
+<p class="cont-desc">Conte o desafio da sua empresa. Em 24h retornamos com uma proposta de diagnóstico inicial.</p>
+<div class="channels" style="margin-top:2.4rem">
+<a href="https://wa.me/5521992488581" target="_blank" class="ch">
+<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
+<div><div class="ch-lbl">WhatsApp</div><div class="ch-val">(21) 99248-8581</div></div>
+<span class="ch-arr">&#8594;</span>
+</a>
+<a href="mailto:contato@phoenixevolution.com.br" class="ch">
+<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+<div><div class="ch-lbl">E-mail</div><div class="ch-val">contato@phoenixevolution.com.br</div></div>
+<span class="ch-arr">&#8594;</span>
+</a>
+<div class="ch" style="cursor:default;pointer-events:none">
+<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+<div><div class="ch-lbl">Localização</div><div class="ch-val">Barra da Tijuca, Rio de Janeiro</div></div>
+</div>
+</div>
+</div>
+<div class="form-wrap">
+<p class="form-title">Envie uma mensagem</p>
+<form onsubmit="handleForm(event)">
+<div class="fg"><label>Nome completo</label><input type="text" placeholder="Seu nome" required></div>
+<div class="fg"><label>E-mail</label><input type="email" placeholder="voce@empresa.com.br" required></div>
+<div class="fg"><label>Empresa</label><input type="text" placeholder="Nome da empresa"></div>
+<div class="fg">
+<label>Como podemos ajudar?</label>
+<select>
+<option value="">Selecione uma área</option>
+<option>Implantação de RH</option>
+<option>Recrutamento e Seleção</option>
+<option>Cultura Organizacional</option>
+<option>Cargos e Salários</option>
+<option>Gestão de Performance</option>
+<option>IA Aplicada ao RH</option>
+<option>Outro</option>
+</select>
+</div>
+<div class="fg"><label>Mensagem</label><textarea placeholder="Descreva o desafio da sua empresa..."></textarea></div>
+<button type="submit" class="f-btn">Enviar mensagem</button>
+</form>
+</div>
+</div>
+</section>
+<footer>
+<div class="f-logo">Phoenix Evolution</div>
+<p class="f-copy">&copy; 2026 Phoenix Evolution &middot; Barra da Tijuca, Rio de Janeiro RJ</p>
+<div class="f-links">
+<a href="https://wa.me/5521992488581" target="_blank">WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br">E-mail</a>
+</div>
+</footer>
+<script>
+function handleForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.f-btn');
+  btn.textContent='Abrindo WhatsApp...';btn.style.opacity='.6';
+  setTimeout(()=>{
+    window.open('https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Phoenix%20Evolution%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.','_blank');
+    btn.textContent='Enviado!';
+  },700);
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:.08});
+document.querySelectorAll('.serv,.val-row,.sobre-left').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(14px)';
+  el.style.transition='opacity .5s ease,transform .5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
