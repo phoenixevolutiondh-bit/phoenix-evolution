@@ -1,699 +1,1462 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="description" content="Phoenix Evolution — Consultoria estratégica de RH no Rio de Janeiro. Gestão de pessoas, cultura organizacional, recrutamento e estruturação de RH para empresas que crescem.">
+
 <meta name="keywords" content="consultoria de RH Rio de Janeiro, RH estratégico, gestão de pessoas, recrutamento e seleção, cultura organizacional, estruturação de RH, consultoria empresarial">
+
 <title>Phoenix Evolution | Consultoria Estratégica de RH — Rio de Janeiro</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
+
   --creme:#FAF5EE;
+
   --champagne:#E8D5A3;
+
   --areia:#B09070;
+
   --ouro:#C9A86C;
+
   --ouro-env:#8C7355;
+
   --marrom:#3D1A0A;
+
   --noite:#1A0E05;
+
   --azul:#112240;
+
   --cinza:#5C5C5C;
+
   --cinza-lt:#9A9A9A;
+
   --linha:#E2DFDA;
+
   --branco:#FFFFFF;
+
   --ft:"Cormorant Garamond",Georgia,serif;
+
   --fb:"DM Sans",Helvetica,sans-serif;
+
 }
 
 html{scroll-behavior:smooth}
+
 body{background:var(--creme);color:var(--noite);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
+
  
+
 /* ── NAV ── */
+
 nav{
+
   position:fixed;top:0;left:0;right:0;z-index:200;
+
   display:flex;align-items:center;justify-content:space-between;
+
   padding:1rem 7vw;
+
   background:rgba(250,245,238,0.97);
+
   backdrop-filter:blur(14px);
+
   border-bottom:0.5px solid var(--linha);
+
   transition:box-shadow .3s;
-}
-nav.scrolled{box-shadow:0 2px 24px rgba(26,14,5,0.07)}
-.nav-logo{font-family:var(--ft);font-size:1.15rem;font-weight:400;color:var(--noite);text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
-.nav-logo span{font-family:var(--fb);font-size:0.54rem;font-weight:300;letter-spacing:0.28em;text-transform:uppercase;color:var(--areia)}
-.nav-links{display:flex;gap:2.2rem;list-style:none}
-.nav-links a{font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--cinza);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--noite)}
-.nav-cta{font-family:var(--fb);font-size:0.66rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--branco);background:var(--noite);padding:.52rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
-.nav-cta:hover{background:var(--marrom)}
- 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;
-  padding:0;
-  position:relative;overflow:hidden;
-  background:var(--creme);
-}
-.hero-left{
-  padding:9rem 5vw 6rem 7vw;
-  position:relative;z-index:1;
-}
-.hero-right{
-  background:var(--noite);
-  min-height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  padding:9rem 4vw 6rem;
-  position:relative;
-}
-.hero-right::before{
-  content:"";
-  position:absolute;left:0;top:20%;bottom:20%;
-  width:1px;background:linear-gradient(to bottom,transparent,var(--ouro) 30%,var(--ouro) 70%,transparent);
-  opacity:.25;
-}
-.hero-manifesto{
-  max-width:380px;
-  width:100%;
-}
-.hm-label{
-  font-size:.6rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--ouro);opacity:.7;margin-bottom:1.4rem;
-}
-.hm-frase{
-  font-family:var(--ft);font-size:1.5rem;font-weight:300;font-style:italic;
-  color:var(--branco);line-height:1.55;margin-bottom:2rem;
-}
-.hm-divider{width:100%;height:.5px;background:rgba(201,168,108,.18);margin-bottom:2rem}
-.hm-pilares{display:flex;flex-direction:column;gap:.1rem;margin-bottom:2rem}
-.hm-pilar{
-  display:flex;align-items:center;gap:1rem;
-  padding:.75rem 0;border-bottom:.5px solid rgba(201,168,108,.1);
-  transition:padding-left .2s;
-}
-.hm-pilar:last-child{border-bottom:none}
-.hm-pilar:hover{padding-left:.5rem}
-.hm-pilar-n{
-  font-family:var(--ft);font-size:.8rem;font-weight:300;
-  color:var(--ouro);opacity:.45;min-width:1.5rem;
-}
-.hm-pilar-txt{
-  font-family:var(--ft);font-size:1.05rem;font-weight:400;
-  color:var(--branco);letter-spacing:.02em;
-}
-.hm-slogan{
-  font-family:var(--ft);font-size:.95rem;font-weight:300;font-style:italic;
-  color:var(--ouro);opacity:.75;
-}
-.eyebrow{
-  font-size:0.62rem;font-weight:400;letter-spacing:0.32em;text-transform:uppercase;
-  color:var(--ouro);display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;
-}
-.eyebrow::before{content:"";width:28px;height:0.5px;background:var(--ouro)}
-.hero h1{
-  font-family:var(--ft);font-size:clamp(2.8rem,5.2vw,5rem);
-  font-weight:300;line-height:1.06;color:var(--noite);
-  margin-bottom:1.6rem;letter-spacing:-.01em;
-}
-.hero h1 em{font-style:italic;color:var(--ouro-env)}
-.hero-sub{
-  font-size:1rem;font-weight:300;color:var(--cinza);
-  line-height:1.85;margin-bottom:3rem;max-width:520px;
-}
-.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:4rem}
-.btn-p{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.9rem 1.8rem;background:var(--noite);color:var(--branco);
-  font-family:var(--fb);font-size:.68rem;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
-  transition:background .2s;
-}
-.btn-p:hover{background:var(--marrom)}
-.btn-s{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.9rem 1.8rem;border:0.5px solid var(--noite);color:var(--noite);
-  font-family:var(--fb);font-size:.68rem;font-weight:400;
-  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
-  transition:background .2s,color .2s;
-}
-.btn-s:hover{background:var(--noite);color:var(--branco)}
-.btn-g{
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.9rem 1.8rem;border:0.5px solid var(--linha);color:var(--cinza);
-  font-family:var(--fb);font-size:.68rem;font-weight:300;
-  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
-  transition:border-color .2s,color .2s;
-}
-.btn-g:hover{border-color:var(--noite);color:var(--noite)}
-.hero-credenciais{
-  display:flex;gap:0;border-top:.5px solid var(--linha);
-  padding-top:2rem;
-}
-.hcred{padding-right:2.5rem;border-right:.5px solid var(--linha);margin-right:2.5rem}
-.hcred:last-child{border-right:none;margin-right:0;padding-right:0}
-.hcred-num{font-family:var(--ft);font-size:2.4rem;font-weight:300;color:var(--noite);line-height:1}
-.hcred-lbl{font-size:.62rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-lt);margin-top:.1rem}
- 
-/* ── UTILS ── */
-.div-line{width:100%;height:.5px;background:var(--linha)}
-section{padding:7rem 7vw}
-.tag{font-size:.61rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-.tag::before{content:"";width:22px;height:.5px;background:var(--ouro)}
-h2.sec{font-family:var(--ft);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.1;color:var(--noite);margin-bottom:1.2rem;letter-spacing:-.01em}
-h2.sec em{font-style:italic;color:var(--ouro-env)}
-.desc{font-size:.9rem;font-weight:300;color:var(--cinza);line-height:1.9}
- 
-/* ── DORES ── */
-#dores{background:var(--azul);padding:6rem 7vw}
-#dores .tag{color:var(--ouro)}
-#dores .tag::before{background:var(--ouro)}
-#dores h2.sec{color:var(--branco)}
-#dores h2.sec em{color:var(--champagne)}
-.dores-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
-.dores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.06)}
-.dor{background:var(--azul);padding:1.8rem 1.6rem;transition:background .3s;position:relative}
-.dor::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:transparent;transition:background .35s}
-.dor:hover{background:rgba(201,168,108,.05)}
-.dor:hover::after{background:var(--ouro)}
-.dor-n{font-family:var(--ft);font-size:.8rem;color:var(--ouro);opacity:.4;margin-bottom:.8rem}
-.dor h4{font-family:var(--ft);font-size:1.1rem;font-weight:400;color:var(--branco);margin-bottom:.5rem;line-height:1.2}
-.dor p{font-size:.8rem;font-weight:300;color:var(--champagne);opacity:.6;line-height:1.75}
- 
-/* ── SOBRE ── */
-#sobre{background:var(--branco)}
-.sobre-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:7rem;align-items:start}
-.sobre-left{}
-.sobre-frase{
-  font-family:var(--ft);font-size:1.5rem;font-weight:300;font-style:italic;
-  color:var(--noite);line-height:1.55;
-  border-left:1.5px solid var(--ouro);padding-left:1.6rem;
-  margin:2rem 0;
-}
-.sobre-assinatura{font-size:.68rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--areia);padding-left:1.6rem}
-.sobre-right{}
-.sobre-bloco{padding:2rem 0;border-bottom:.5px solid var(--linha)}
-.sobre-bloco:first-child{padding-top:0}
-.sobre-bloco:last-child{border-bottom:none}
-.sb-label{font-size:.6rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro);margin-bottom:.5rem}
-.sb-texto{font-size:.88rem;font-weight:300;color:var(--cinza);line-height:1.85}
-.areas-wrap{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
-.area-tag{font-size:.6rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border:.5px solid var(--linha);color:var(--cinza)}
-.nums-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:2rem 0;border-bottom:.5px solid var(--linha)}
-.nrow-num{font-family:var(--ft);font-size:2rem;font-weight:300;color:var(--noite);line-height:1}
-.nrow-lbl{font-size:.6rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-lt)}
- 
-/* ── SERVIÇOS ── */
-#servicos{background:var(--creme)}
-.serv-header{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);border:.5px solid var(--linha)}
-.serv{
-  background:var(--creme);padding:2.4rem 2rem;
-  position:relative;overflow:hidden;transition:background .3s;
-}
-.serv::before{
-  content:"";position:absolute;top:0;left:0;right:0;
-  height:2px;background:transparent;transition:background .4s;
-}
-.serv:hover{background:var(--branco)}
-.serv:hover::before{background:var(--ouro)}
-.serv-n{font-family:var(--ft);font-size:.82rem;color:var(--ouro);opacity:.5;margin-bottom:.9rem}
-.serv h3{font-family:var(--ft);font-size:1.25rem;font-weight:400;color:var(--noite);margin-bottom:.35rem;line-height:1.2}
-.serv-dor{font-size:.75rem;font-weight:300;color:var(--ouro-env);font-style:italic;margin-bottom:.7rem}
-.serv p{font-size:.82rem;font-weight:300;color:var(--cinza);line-height:1.8;margin-bottom:1.1rem}
-.serv-link{
-  font-size:.62rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--noite);text-decoration:none;
-  border-bottom:.5px solid var(--linha);padding-bottom:.18rem;
-  display:inline-flex;align-items:center;gap:.35rem;
-  transition:color .2s,border-color .2s;
-}
-.serv-link:hover{color:var(--ouro);border-color:var(--ouro)}
- 
-/* ── PROVA ── */
-#prova{background:var(--branco)}
-.prova-inner{display:grid;grid-template-columns:5fr 7fr;gap:7rem;align-items:start}
-.segs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.8rem}
-.seg{font-size:.68rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);padding:.5rem .9rem;border:.5px solid var(--linha);text-align:center}
-.depoimentos{display:flex;flex-direction:column;gap:1.4rem}
-.dep{padding:2rem 2.2rem 2rem 3rem;border:.5px solid var(--linha);position:relative}
-.dep::before{
-  content:"\201C";
-  font-family:var(--ft);font-size:4.5rem;color:var(--champagne);
-  position:absolute;top:.2rem;left:1rem;line-height:1;
-}
-.dep-text{font-family:var(--ft);font-size:1.05rem;font-weight:300;font-style:italic;color:var(--noite);line-height:1.62;margin-bottom:.9rem}
-.dep-autor{font-size:.66rem;font-weight:400;letter-spacing:.13em;text-transform:uppercase;color:var(--areia)}
- 
-/* ── CONTATO ── */
-#contato{background:var(--azul);padding:7rem 7vw}
-.cont-inner{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start}
-.cont-tag{font-size:.61rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-.cont-tag::before{content:"";width:22px;height:.5px;background:var(--ouro)}
-.cont-h2{font-family:var(--ft);font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:300;color:var(--branco);margin-bottom:1.2rem;line-height:1.1}
-.cont-h2 em{font-style:italic;color:var(--ouro)}
-.cont-desc{font-size:.9rem;font-weight:300;color:var(--champagne);opacity:.65;line-height:1.88;margin-bottom:2.5rem;max-width:380px}
-.channels{display:flex;flex-direction:column;gap:.6rem}
-.ch{
-  display:flex;align-items:center;gap:1rem;padding:1.05rem 1.4rem;
-  border:.5px solid rgba(201,168,108,.18);text-decoration:none;color:var(--branco);
-  position:relative;transition:border-color .25s,background .25s;
-}
-.ch::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ouro);opacity:0;transition:opacity .25s}
-.ch:hover{background:rgba(201,168,108,.06);border-color:rgba(201,168,108,.4)}
-.ch:hover::before{opacity:1}
-.ch-ico{width:34px;height:34px;background:rgba(201,168,108,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ch-ico svg{width:15px;height:15px;stroke:var(--ouro);fill:none;stroke-width:1.5}
-.ch-lbl{font-size:.58rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.7}
-.ch-val{font-size:.88rem;color:var(--branco)}
-.ch-arr{margin-left:auto;color:var(--ouro);opacity:.3;transition:opacity .25s,transform .25s}
-.ch:hover .ch-arr{opacity:.9;transform:translateX(4px)}
-.fg{margin-bottom:.85rem}
-.fg label{display:block;font-size:.58rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.75;margin-bottom:.38rem}
-.fg input,.fg textarea,.fg select{
-  width:100%;background:rgba(201,168,108,.05);border:.5px solid rgba(201,168,108,.18);
-  color:var(--branco);font-family:var(--fb);font-size:.87rem;font-weight:300;
-  padding:.72rem .9rem;outline:none;transition:border-color .2s;appearance:none;
-}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(201,168,108,.52)}
-.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.18)}
-.fg textarea{height:82px;resize:vertical}
-.fg select option{background:var(--azul)}
-.form-title{font-family:var(--ft);font-size:1.3rem;font-weight:300;color:var(--branco);margin-bottom:1.6rem}
-.f-btn{
-  width:100%;padding:.9rem;background:var(--ouro);color:var(--noite);
-  font-family:var(--fb);font-size:.68rem;font-weight:500;letter-spacing:.17em;
-  text-transform:uppercase;border:none;cursor:pointer;transition:opacity .2s;margin-top:.5rem;
-}
-.f-btn:hover{opacity:.88}
- 
-/* ── FOOTER ── */
-footer{
-  padding:2rem 7vw;display:flex;justify-content:space-between;align-items:center;
-  background:var(--noite);border-top:.5px solid rgba(201,168,108,.1);flex-wrap:wrap;gap:1rem;
-}
-.f-logo{font-family:var(--ft);font-size:.95rem;font-weight:300;color:var(--ouro)}
-.f-slogan{font-family:var(--ft);font-size:.8rem;font-style:italic;color:var(--champagne);opacity:.4}
-.f-links{display:flex;gap:1.2rem;align-items:center}
-.f-links a{font-size:.62rem;font-weight:300;letter-spacing:.1em;color:var(--champagne);opacity:.4;text-decoration:none;transition:opacity .2s}
-.f-links a:hover{opacity:1}
-.f-copy{font-size:.6rem;color:var(--champagne);opacity:.28;letter-spacing:.04em}
- 
-/* ── WPP FIXO ── */
-.wpp-float{
-  position:fixed;bottom:1.8rem;right:1.8rem;z-index:300;
-  width:52px;height:52px;background:#25D366;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 22px rgba(0,0,0,.2);text-decoration:none;
-  transition:transform .2s,box-shadow .2s;
-}
-.wpp-float:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(0,0,0,.25)}
-.wpp-float svg{width:25px;height:25px;fill:white}
-.wpp-tip{
-  position:absolute;right:62px;background:var(--noite);color:var(--branco);
-  font-family:var(--fb);font-size:.7rem;white-space:nowrap;
-  padding:.42rem .9rem;opacity:0;pointer-events:none;transition:opacity .2s;font-weight:300;
-}
-.wpp-float:hover .wpp-tip{opacity:1}
- 
-/* ── REVEAL ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.hero-inner>*{animation:fadeUp .7s ease both}
-.hero-inner>*:nth-child(1){animation-delay:.08s}
-.hero-inner>*:nth-child(2){animation-delay:.2s}
-.hero-inner>*:nth-child(3){animation-delay:.32s}
-.hero-inner>*:nth-child(4){animation-delay:.44s}
-.hero-inner>*:nth-child(5){animation-delay:.55s}
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
- 
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-left{padding:8rem 5vw 4rem}
-  .hero-right{min-height:auto;padding:4rem 5vw}
-  .dores-intro{grid-template-columns:1fr}
-  .sobre-inner{grid-template-columns:1fr;gap:3rem}
-  .serv-header{grid-template-columns:1fr}
-  .prova-inner{grid-template-columns:1fr;gap:3rem}
-  .cont-inner{grid-template-columns:1fr;gap:3.5rem}
-}
-@media(max-width:768px){
-  .nav-links{display:none}
-  section{padding:5rem 5vw}
-  #dores,#contato{padding:5rem 5vw}
-  .serv-grid{grid-template-columns:1fr 1fr}
-  .dores-grid{grid-template-columns:1fr 1fr}
-  .nums-row{grid-template-columns:repeat(2,1fr)}
-  .hero h1{font-size:2.8rem}
-  .hero-credenciais{flex-wrap:wrap;gap:1.5rem}
-  .hcred{border-right:none;margin-right:0;padding-right:0;border-bottom:.5px solid var(--linha);padding-bottom:1.2rem}
-  .hcred:last-child{border-bottom:none;padding-bottom:0}
-}
-@media(max-width:500px){
-  section{padding:4rem 5vw}
-  #dores,#contato{padding:4rem 5vw}
-  .serv-grid{grid-template-columns:1fr}
-  .dores-grid{grid-template-columns:1fr}
-  .segs-grid{grid-template-columns:1fr 1fr}
-  .hero-btns{flex-direction:column}
-  .hero-btns a{justify-content:center}
-  nav{padding:.9rem 5vw}
+
 }
 
+nav.scrolled{box-shadow:0 2px 24px rgba(26,14,5,0.07)}
+
+.nav-logo{font-family:var(--ft);font-size:1.15rem;font-weight:400;color:var(--noite);text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
+
+.nav-logo span{font-family:var(--fb);font-size:0.54rem;font-weight:300;letter-spacing:0.28em;text-transform:uppercase;color:var(--areia)}
+
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+
+.nav-links a{font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--cinza);text-decoration:none;transition:color .2s}
+
+.nav-links a:hover{color:var(--noite)}
+
+.nav-cta{font-family:var(--fb);font-size:0.66rem;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--branco);background:var(--noite);padding:.52rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+
+.nav-cta:hover{background:var(--marrom)}
+
+ 
+
+/* ── HERO ── */
+
+.hero{
+
+  min-height:100vh;
+
+  display:grid;grid-template-columns:1fr 1fr;
+
+  align-items:center;
+
+  padding:0;
+
+  position:relative;overflow:hidden;
+
+  background:var(--creme);
+
+}
+
+.hero-left{
+
+  padding:9rem 5vw 6rem 7vw;
+
+  position:relative;z-index:1;
+
+}
+
+.hero-right{
+
+  background:var(--branco);
+
+  min-height:100vh;
+
+  display:flex;align-items:center;justify-content:center;
+
+  padding:9rem 5vw 6rem 4vw;
+
+  position:relative;
+
+}
+
+.hero-right::before{
+
+  content:"";
+
+  position:absolute;left:0;top:15%;bottom:15%;
+
+  width:.5px;
+
+  background:linear-gradient(to bottom,transparent,var(--linha) 30%,var(--linha) 70%,transparent);
+
+}
+
+.hero-manifesto{
+
+  max-width:360px;
+
+  width:100%;
+
+}
+
+.hm-label{
+
+  font-size:.6rem;font-weight:400;letter-spacing:.28em;text-transform:uppercase;
+
+  color:var(--ouro);margin-bottom:1.6rem;
+
+}
+
+.hm-frase{
+
+  font-family:var(--ft);font-size:1.45rem;font-weight:300;font-style:italic;
+
+  color:var(--noite);line-height:1.6;margin-bottom:2.2rem;
+
+  padding-left:1.2rem;border-left:1.5px solid var(--ouro);
+
+}
+
+.hm-divider{width:100%;height:.5px;background:var(--linha);margin-bottom:2rem}
+
+.hm-pilares{display:flex;flex-direction:column;gap:0;margin-bottom:2.2rem}
+
+.hm-pilar{
+
+  display:flex;align-items:center;gap:1.2rem;
+
+  padding:.8rem 0;border-bottom:.5px solid var(--linha);
+
+  transition:padding-left .2s;cursor:default;
+
+}
+
+.hm-pilar:last-child{border-bottom:none}
+
+.hm-pilar:hover{padding-left:.4rem}
+
+.hm-pilar-n{
+
+  font-family:var(--ft);font-size:.78rem;font-weight:300;
+
+  color:var(--ouro);opacity:.55;min-width:1.4rem;
+
+}
+
+.hm-pilar-txt{
+
+  font-family:var(--ft);font-size:1rem;font-weight:400;
+
+  color:var(--noite);letter-spacing:.02em;
+
+}
+
+.hm-slogan{
+
+  font-family:var(--ft);font-size:.88rem;font-weight:300;font-style:italic;
+
+  color:var(--ouro-env);
+
+}
+
+.eyebrow{
+
+  font-size:0.62rem;font-weight:400;letter-spacing:0.32em;text-transform:uppercase;
+
+  color:var(--ouro);display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;
+
+}
+
+.eyebrow::before{content:"";width:28px;height:0.5px;background:var(--ouro)}
+
+.hero h1{
+
+  font-family:var(--ft);font-size:clamp(2.8rem,5.2vw,5rem);
+
+  font-weight:300;line-height:1.06;color:var(--noite);
+
+  margin-bottom:1.6rem;letter-spacing:-.01em;
+
+}
+
+.hero h1 em{font-style:italic;color:var(--ouro-env)}
+
+.hero-sub{
+
+  font-size:1rem;font-weight:300;color:var(--cinza);
+
+  line-height:1.85;margin-bottom:3rem;max-width:520px;
+
+}
+
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:4rem}
+
+.btn-p{
+
+  display:inline-flex;align-items:center;gap:.5rem;
+
+  padding:.9rem 1.8rem;background:var(--noite);color:var(--branco);
+
+  font-family:var(--fb);font-size:.68rem;font-weight:500;
+
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+
+  transition:background .2s;
+
+}
+
+.btn-p:hover{background:var(--marrom)}
+
+.btn-s{
+
+  display:inline-flex;align-items:center;gap:.5rem;
+
+  padding:.9rem 1.8rem;border:0.5px solid var(--noite);color:var(--noite);
+
+  font-family:var(--fb);font-size:.68rem;font-weight:400;
+
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+
+  transition:background .2s,color .2s;
+
+}
+
+.btn-s:hover{background:var(--noite);color:var(--branco)}
+
+.btn-g{
+
+  display:inline-flex;align-items:center;gap:.5rem;
+
+  padding:.9rem 1.8rem;border:0.5px solid var(--linha);color:var(--cinza);
+
+  font-family:var(--fb);font-size:.68rem;font-weight:300;
+
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+
+  transition:border-color .2s,color .2s;
+
+}
+
+.btn-g:hover{border-color:var(--noite);color:var(--noite)}
+
+.hero-credenciais{
+
+  display:flex;gap:0;border-top:.5px solid var(--linha);
+
+  padding-top:2rem;
+
+}
+
+.hcred{padding-right:2.5rem;border-right:.5px solid var(--linha);margin-right:2.5rem}
+
+.hcred:last-child{border-right:none;margin-right:0;padding-right:0}
+
+.hcred-num{font-family:var(--ft);font-size:2.4rem;font-weight:300;color:var(--noite);line-height:1}
+
+.hcred-lbl{font-size:.62rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-lt);margin-top:.1rem}
+
+ 
+
+/* ── UTILS ── */
+
+.div-line{width:100%;height:.5px;background:var(--linha)}
+
+section{padding:7rem 7vw}
+
+.tag{font-size:.61rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+
+.tag::before{content:"";width:22px;height:.5px;background:var(--ouro)}
+
+h2.sec{font-family:var(--ft);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.1;color:var(--noite);margin-bottom:1.2rem;letter-spacing:-.01em}
+
+h2.sec em{font-style:italic;color:var(--ouro-env)}
+
+.desc{font-size:.9rem;font-weight:300;color:var(--cinza);line-height:1.9}
+
+ 
+
+/* ── DORES ── */
+
+#dores{background:var(--azul);padding:6rem 7vw}
+
+#dores .tag{color:var(--ouro)}
+
+#dores .tag::before{background:var(--ouro)}
+
+#dores h2.sec{color:var(--branco)}
+
+#dores h2.sec em{color:var(--champagne)}
+
+.dores-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
+
+.dores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.06)}
+
+.dor{background:var(--azul);padding:1.8rem 1.6rem;transition:background .3s;position:relative}
+
+.dor::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:transparent;transition:background .35s}
+
+.dor:hover{background:rgba(201,168,108,.05)}
+
+.dor:hover::after{background:var(--ouro)}
+
+.dor-n{font-family:var(--ft);font-size:.8rem;color:var(--ouro);opacity:.4;margin-bottom:.8rem}
+
+.dor h4{font-family:var(--ft);font-size:1.1rem;font-weight:400;color:var(--branco);margin-bottom:.5rem;line-height:1.2}
+
+.dor p{font-size:.8rem;font-weight:300;color:var(--champagne);opacity:.6;line-height:1.75}
+
+ 
+
+/* ── SOBRE ── */
+
+#sobre{background:var(--branco)}
+
+.sobre-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:7rem;align-items:start}
+
+.sobre-left{}
+
+.sobre-frase{
+
+  font-family:var(--ft);font-size:1.5rem;font-weight:300;font-style:italic;
+
+  color:var(--noite);line-height:1.55;
+
+  border-left:1.5px solid var(--ouro);padding-left:1.6rem;
+
+  margin:2rem 0;
+
+}
+
+.sobre-assinatura{font-size:.68rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--areia);padding-left:1.6rem}
+
+.sobre-right{}
+
+.sobre-bloco{padding:2rem 0;border-bottom:.5px solid var(--linha)}
+
+.sobre-bloco:first-child{padding-top:0}
+
+.sobre-bloco:last-child{border-bottom:none}
+
+.sb-label{font-size:.6rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro);margin-bottom:.5rem}
+
+.sb-texto{font-size:.88rem;font-weight:300;color:var(--cinza);line-height:1.85}
+
+.areas-wrap{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+
+.area-tag{font-size:.6rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border:.5px solid var(--linha);color:var(--cinza)}
+
+.nums-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:2rem 0;border-bottom:.5px solid var(--linha)}
+
+.nrow-num{font-family:var(--ft);font-size:2rem;font-weight:300;color:var(--noite);line-height:1}
+
+.nrow-lbl{font-size:.6rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-lt)}
+
+ 
+
+/* ── SERVIÇOS ── */
+
+#servicos{background:var(--creme)}
+
+.serv-header{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
+
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);border:.5px solid var(--linha)}
+
+.serv{
+
+  background:var(--creme);padding:2.4rem 2rem;
+
+  position:relative;overflow:hidden;transition:background .3s;
+
+}
+
+.serv::before{
+
+  content:"";position:absolute;top:0;left:0;right:0;
+
+  height:2px;background:transparent;transition:background .4s;
+
+}
+
+.serv:hover{background:var(--branco)}
+
+.serv:hover::before{background:var(--ouro)}
+
+.serv-n{font-family:var(--ft);font-size:.82rem;color:var(--ouro);opacity:.5;margin-bottom:.9rem}
+
+.serv h3{font-family:var(--ft);font-size:1.25rem;font-weight:400;color:var(--noite);margin-bottom:.35rem;line-height:1.2}
+
+.serv-dor{font-size:.75rem;font-weight:300;color:var(--ouro-env);font-style:italic;margin-bottom:.7rem}
+
+.serv p{font-size:.82rem;font-weight:300;color:var(--cinza);line-height:1.8;margin-bottom:1.1rem}
+
+.serv-link{
+
+  font-size:.62rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;
+
+  color:var(--noite);text-decoration:none;
+
+  border-bottom:.5px solid var(--linha);padding-bottom:.18rem;
+
+  display:inline-flex;align-items:center;gap:.35rem;
+
+  transition:color .2s,border-color .2s;
+
+}
+
+.serv-link:hover{color:var(--ouro);border-color:var(--ouro)}
+
+ 
+
+/* ── PROVA ── */
+
+#prova{background:var(--branco)}
+
+.prova-inner{display:grid;grid-template-columns:5fr 7fr;gap:7rem;align-items:start}
+
+.segs-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.8rem}
+
+.seg{font-size:.68rem;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza);padding:.5rem .9rem;border:.5px solid var(--linha);text-align:center}
+
+.depoimentos{display:flex;flex-direction:column;gap:1.4rem}
+
+.dep{padding:2rem 2.2rem 2rem 3rem;border:.5px solid var(--linha);position:relative}
+
+.dep::before{
+
+  content:"\201C";
+
+  font-family:var(--ft);font-size:4.5rem;color:var(--champagne);
+
+  position:absolute;top:.2rem;left:1rem;line-height:1;
+
+}
+
+.dep-text{font-family:var(--ft);font-size:1.05rem;font-weight:300;font-style:italic;color:var(--noite);line-height:1.62;margin-bottom:.9rem}
+
+.dep-autor{font-size:.66rem;font-weight:400;letter-spacing:.13em;text-transform:uppercase;color:var(--areia)}
+
+ 
+
+/* ── CONTATO ── */
+
+#contato{background:var(--azul);padding:7rem 7vw}
+
+.cont-inner{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start}
+
+.cont-tag{font-size:.61rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+
+.cont-tag::before{content:"";width:22px;height:.5px;background:var(--ouro)}
+
+.cont-h2{font-family:var(--ft);font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:300;color:var(--branco);margin-bottom:1.2rem;line-height:1.1}
+
+.cont-h2 em{font-style:italic;color:var(--ouro)}
+
+.cont-desc{font-size:.9rem;font-weight:300;color:var(--champagne);opacity:.65;line-height:1.88;margin-bottom:2.5rem;max-width:380px}
+
+.channels{display:flex;flex-direction:column;gap:.6rem}
+
+.ch{
+
+  display:flex;align-items:center;gap:1rem;padding:1.05rem 1.4rem;
+
+  border:.5px solid rgba(201,168,108,.18);text-decoration:none;color:var(--branco);
+
+  position:relative;transition:border-color .25s,background .25s;
+
+}
+
+.ch::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ouro);opacity:0;transition:opacity .25s}
+
+.ch:hover{background:rgba(201,168,108,.06);border-color:rgba(201,168,108,.4)}
+
+.ch:hover::before{opacity:1}
+
+.ch-ico{width:34px;height:34px;background:rgba(201,168,108,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+.ch-ico svg{width:15px;height:15px;stroke:var(--ouro);fill:none;stroke-width:1.5}
+
+.ch-lbl{font-size:.58rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.7}
+
+.ch-val{font-size:.88rem;color:var(--branco)}
+
+.ch-arr{margin-left:auto;color:var(--ouro);opacity:.3;transition:opacity .25s,transform .25s}
+
+.ch:hover .ch-arr{opacity:.9;transform:translateX(4px)}
+
+.fg{margin-bottom:.85rem}
+
+.fg label{display:block;font-size:.58rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);opacity:.75;margin-bottom:.38rem}
+
+.fg input,.fg textarea,.fg select{
+
+  width:100%;background:rgba(201,168,108,.05);border:.5px solid rgba(201,168,108,.18);
+
+  color:var(--branco);font-family:var(--fb);font-size:.87rem;font-weight:300;
+
+  padding:.72rem .9rem;outline:none;transition:border-color .2s;appearance:none;
+
+}
+
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(201,168,108,.52)}
+
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.18)}
+
+.fg textarea{height:82px;resize:vertical}
+
+.fg select option{background:var(--azul)}
+
+.form-title{font-family:var(--ft);font-size:1.3rem;font-weight:300;color:var(--branco);margin-bottom:1.6rem}
+
+.f-btn{
+
+  width:100%;padding:.9rem;background:var(--ouro);color:var(--noite);
+
+  font-family:var(--fb);font-size:.68rem;font-weight:500;letter-spacing:.17em;
+
+  text-transform:uppercase;border:none;cursor:pointer;transition:opacity .2s;margin-top:.5rem;
+
+}
+
+.f-btn:hover{opacity:.88}
+
+ 
+
+/* ── FOOTER ── */
+
+footer{
+
+  padding:2rem 7vw;display:flex;justify-content:space-between;align-items:center;
+
+  background:var(--noite);border-top:.5px solid rgba(201,168,108,.1);flex-wrap:wrap;gap:1rem;
+
+}
+
+.f-logo{font-family:var(--ft);font-size:.95rem;font-weight:300;color:var(--ouro)}
+
+.f-slogan{font-family:var(--ft);font-size:.8rem;font-style:italic;color:var(--champagne);opacity:.4}
+
+.f-links{display:flex;gap:1.2rem;align-items:center}
+
+.f-links a{font-size:.62rem;font-weight:300;letter-spacing:.1em;color:var(--champagne);opacity:.4;text-decoration:none;transition:opacity .2s}
+
+.f-links a:hover{opacity:1}
+
+.f-copy{font-size:.6rem;color:var(--champagne);opacity:.28;letter-spacing:.04em}
+
+ 
+
+/* ── WPP FIXO ── */
+
+.wpp-float{
+
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:300;
+
+  width:52px;height:52px;background:#25D366;border-radius:50%;
+
+  display:flex;align-items:center;justify-content:center;
+
+  box-shadow:0 4px 22px rgba(0,0,0,.2);text-decoration:none;
+
+  transition:transform .2s,box-shadow .2s;
+
+}
+
+.wpp-float:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(0,0,0,.25)}
+
+.wpp-float svg{width:25px;height:25px;fill:white}
+
+.wpp-tip{
+
+  position:absolute;right:62px;background:var(--noite);color:var(--branco);
+
+  font-family:var(--fb);font-size:.7rem;white-space:nowrap;
+
+  padding:.42rem .9rem;opacity:0;pointer-events:none;transition:opacity .2s;font-weight:300;
+
+}
+
+.wpp-float:hover .wpp-tip{opacity:1}
+
+ 
+
+/* ── REVEAL ── */
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-inner>*{animation:fadeUp .7s ease both}
+
+.hero-inner>*:nth-child(1){animation-delay:.08s}
+
+.hero-inner>*:nth-child(2){animation-delay:.2s}
+
+.hero-inner>*:nth-child(3){animation-delay:.32s}
+
+.hero-inner>*:nth-child(4){animation-delay:.44s}
+
+.hero-inner>*:nth-child(5){animation-delay:.55s}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+ 
+
+/* ── RESPONSIVE ── */
+
+@media(max-width:1024px){
+
+  .hero{grid-template-columns:1fr}
+
+  .hero-left{padding:8rem 5vw 4rem}
+
+  .hero-right{min-height:auto;padding:4rem 5vw}
+
+  .dores-intro{grid-template-columns:1fr}
+
+  .sobre-inner{grid-template-columns:1fr;gap:3rem}
+
+  .serv-header{grid-template-columns:1fr}
+
+  .prova-inner{grid-template-columns:1fr;gap:3rem}
+
+  .cont-inner{grid-template-columns:1fr;gap:3.5rem}
+
+}
+
+@media(max-width:768px){
+
+  .nav-links{display:none}
+
+  section{padding:5rem 5vw}
+
+  #dores,#contato{padding:5rem 5vw}
+
+  .serv-grid{grid-template-columns:1fr 1fr}
+
+  .dores-grid{grid-template-columns:1fr 1fr}
+
+  .nums-row{grid-template-columns:repeat(2,1fr)}
+
+  .hero h1{font-size:2.8rem}
+
+  .hero-credenciais{flex-wrap:wrap;gap:1.5rem}
+
+  .hcred{border-right:none;margin-right:0;padding-right:0;border-bottom:.5px solid var(--linha);padding-bottom:1.2rem}
+
+  .hcred:last-child{border-bottom:none;padding-bottom:0}
+
+}
+
+@media(max-width:500px){
+
+  section{padding:4rem 5vw}
+
+  #dores,#contato{padding:4rem 5vw}
+
+  .serv-grid{grid-template-columns:1fr}
+
+  .dores-grid{grid-template-columns:1fr}
+
+  .segs-grid{grid-template-columns:1fr 1fr}
+
+  .hero-btns{flex-direction:column}
+
+  .hero-btns a{justify-content:center}
+
+  nav{padding:.9rem 5vw}
+
+}
+
+ 
+
+/* ── MODAL ── */
+
+.modal-overlay{
+
+  position:fixed;inset:0;z-index:500;
+
+  background:rgba(26,14,5,0.72);
+
+  backdrop-filter:blur(6px);
+
+  display:flex;align-items:center;justify-content:center;
+
+  opacity:0;pointer-events:none;transition:opacity .3s;
+
+  padding:1.5rem;
+
+}
+
+.modal-overlay.open{opacity:1;pointer-events:all}
+
+.modal{
+
+  background:var(--branco);
+
+  max-width:640px;width:100%;
+
+  max-height:90vh;overflow-y:auto;
+
+  position:relative;
+
+  transform:translateY(20px);transition:transform .3s;
+
+}
+
+.modal-overlay.open .modal{transform:translateY(0)}
+
+.modal-header{
+
+  background:var(--noite);
+
+  padding:2rem 2.2rem 1.6rem;
+
+  position:relative;
+
+}
+
+.modal-num{font-family:var(--ft);font-size:.8rem;color:var(--ouro);opacity:.5;margin-bottom:.3rem}
+
+.modal-title{font-family:var(--ft);font-size:1.7rem;font-weight:300;color:var(--branco);line-height:1.15}
+
+.modal-subtitle{font-size:.8rem;font-weight:300;color:var(--champagne);opacity:.6;margin-top:.4rem;font-style:italic}
+
+.modal-close{
+
+  position:absolute;top:1.2rem;right:1.4rem;
+
+  background:none;border:none;cursor:pointer;
+
+  color:var(--champagne);opacity:.5;font-size:1.3rem;
+
+  transition:opacity .2s;line-height:1;padding:.3rem;
+
+}
+
+.modal-close:hover{opacity:1}
+
+.modal-body{padding:2rem 2.2rem 2.4rem}
+
+.modal-section{margin-bottom:1.6rem}
+
+.modal-section:last-of-type{margin-bottom:2rem}
+
+.modal-label{
+
+  font-size:.6rem;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
+
+  color:var(--ouro);margin-bottom:.7rem;display:flex;align-items:center;gap:.6rem;
+
+}
+
+.modal-label::before{content:"";width:18px;height:.5px;background:var(--ouro)}
+
+.modal-text{font-size:.88rem;font-weight:300;color:var(--cinza);line-height:1.85}
+
+.modal-entregaveis{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.1rem}
+
+.modal-entregaveis li{
+
+  font-size:.85rem;font-weight:300;color:var(--cinza);
+
+  padding:.5rem .7rem;background:var(--creme);
+
+  border-left:2px solid var(--ouro);line-height:1.4;
+
+}
+
+.modal-meta{
+
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+
+  background:var(--linha);border:.5px solid var(--linha);
+
+  margin-bottom:1.8rem;
+
+}
+
+.modal-meta-item{
+
+  background:var(--branco);
+
+  padding:1rem 1.2rem;
+
+}
+
+.modal-meta-lbl{font-size:.58rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza-lt);margin-bottom:.25rem}
+
+.modal-meta-val{font-size:.88rem;font-weight:400;color:var(--noite);font-family:var(--ft)}
+
+.modal-cta{
+
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+
+  width:100%;padding:1rem;
+
+  background:var(--noite);color:var(--branco);
+
+  font-family:var(--fb);font-size:.72rem;font-weight:500;
+
+  letter-spacing:.16em;text-transform:uppercase;
+
+  text-decoration:none;transition:background .2s;
+
+}
+
+.modal-cta:hover{background:var(--marrom)}
+
+.modal-cta-wpp{
+
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+
+  width:100%;padding:1rem;margin-top:.6rem;
+
+  background:#25D366;color:var(--branco);
+
+  font-family:var(--fb);font-size:.72rem;font-weight:500;
+
+  letter-spacing:.16em;text-transform:uppercase;
+
+  text-decoration:none;transition:opacity .2s;border:none;cursor:pointer;
+
+}
+
+.modal-cta-wpp:hover{opacity:.9}
+
+ 
+
 </style>
+
 </head>
+
 <body>
+
  
+
 <!-- NAV -->
+
 <nav id="nav">
+
 <a href="#" class="nav-logo">
+
     Phoenix Evolution
+
 <span>Design Humano Estratégico</span>
+
 </a>
+
 <ul class="nav-links">
+
 <li><a href="#dores">Diagnóstico</a></li>
+
 <li><a href="#sobre">Consultoria</a></li>
+
 <li><a href="#servicos">Soluções</a></li>
+
 <li><a href="#prova">Credenciais</a></li>
+
 <li><a href="#contato">Contato</a></li>
+
 </ul>
+
 <a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20com%20a%20Phoenix%20Evolution." target="_blank" class="nav-cta">Agendar diagnóstico</a>
+
 </nav>
+
  
+
 <!-- HERO -->
+
 <section class="hero">
+
 <div class="hero-left">
-<p class="eyebrow">Consultoria Estratégica de RH &middot; Rio de Janeiro</p>
-<h1>Transformamos RH<br>em <em>resultado</em><br>de negócio.</h1>
-<p class="hero-sub">Consultoria especializada em gestão de pessoas, cultura organizacional, recrutamento e estruturação de RH para empresas que querem crescer com consistência.</p>
+
+<p class="eyebrow">Consultoria Estrat&eacute;gica de RH &middot; Rio de Janeiro</p>
+
+<h1>Transformamos RH<br>em <em>resultado</em><br>de neg&oacute;cio.</h1>
+
+<p class="hero-sub">Consultoria especializada em gest&atilde;o de pessoas, cultura organizacional, recrutamento e estrutura&ccedil;&atilde;o de RH para empresas que querem crescer com consist&ecirc;ncia.</p>
+
 <div class="hero-btns">
+
 <a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20os%20desafios%20do%20meu%20RH." target="_blank" class="btn-p">Falar no WhatsApp &#8594;</a>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" class="btn-s">Agendar diagnóstico</a>
-<a href="#servicos" class="btn-g">Conhecer soluções</a>
+
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito." target="_blank" class="btn-s">Agendar diagn&oacute;stico</a>
+
+<a href="#servicos" class="btn-g">Conhecer solu&ccedil;&otilde;es</a>
+
 </div>
+
 <div class="hero-credenciais">
-<div class="hcred"><div class="hcred-num">30+</div><div class="hcred-lbl">Anos de experiência</div></div>
-<div class="hcred"><div class="hcred-num">6</div><div class="hcred-lbl">Setores de atuação</div></div>
-<div class="hcred"><div class="hcred-num">12</div><div class="hcred-lbl">Soluções de RH</div></div>
+
+<div class="hcred"><div class="hcred-num">30+</div><div class="hcred-lbl">Anos de experi&ecirc;ncia</div></div>
+
+<div class="hcred"><div class="hcred-num">6</div><div class="hcred-lbl">Setores de atua&ccedil;&atilde;o</div></div>
+
+<div class="hcred"><div class="hcred-num">12</div><div class="hcred-lbl">Solu&ccedil;&otilde;es de RH</div></div>
+
 </div>
+
 </div>
+
 <div class="hero-right">
+
 <div class="hero-manifesto">
-<p class="hm-label">Nosso propósito</p>
-<p class="hm-frase">&ldquo;RH sem estratégia é custo.<br>Com estratégia, é vantagem competitiva.&rdquo;</p>
+
+<p class="hm-label">Nosso prop&oacute;sito</p>
+
+<p class="hm-frase">&ldquo;RH sem estrat&eacute;gia &eacute; custo.<br>Com estrat&eacute;gia, &eacute; vantagem competitiva.&rdquo;</p>
+
 <div class="hm-divider"></div>
+
 <div class="hm-pilares">
-<div class="hm-pilar">
-<span class="hm-pilar-n">01</span>
-<span class="hm-pilar-txt">Propósito</span>
+
+<div class="hm-pilar"><span class="hm-pilar-n">01</span><span class="hm-pilar-txt">Prop&oacute;sito</span></div>
+
+<div class="hm-pilar"><span class="hm-pilar-n">02</span><span class="hm-pilar-txt">Pessoas</span></div>
+
+<div class="hm-pilar"><span class="hm-pilar-n">03</span><span class="hm-pilar-txt">Estrat&eacute;gia</span></div>
+
+<div class="hm-pilar"><span class="hm-pilar-n">04</span><span class="hm-pilar-txt">Clareza</span></div>
+
+<div class="hm-pilar"><span class="hm-pilar-n">05</span><span class="hm-pilar-txt">Evolu&ccedil;&atilde;o</span></div>
+
 </div>
-<div class="hm-pilar">
-<span class="hm-pilar-n">02</span>
-<span class="hm-pilar-txt">Pessoas</span>
-</div>
-<div class="hm-pilar">
-<span class="hm-pilar-n">03</span>
-<span class="hm-pilar-txt">Estratégia</span>
-</div>
-<div class="hm-pilar">
-<span class="hm-pilar-n">04</span>
-<span class="hm-pilar-txt">Clareza</span>
-</div>
-<div class="hm-pilar">
-<span class="hm-pilar-n">05</span>
-<span class="hm-pilar-txt">Evolução</span>
-</div>
-</div>
+
 <div class="hm-divider"></div>
-<p class="hm-slogan">RH que vira resultado de negócio.</p>
+
+<p class="hm-slogan">RH que vira resultado de neg&oacute;cio.</p>
+
 </div>
+
 </div>
+
 </section>
+
  
+
 <div class="div-line"></div>
+
  
+
 <!-- DORES -->
+
 <section id="dores">
+
 <div class="dores-intro">
+
 <div class="reveal">
-<p class="tag">Diagnóstico</p>
+
+<p class="tag">Diagn&oacute;stico</p>
+
 <h2 class="sec" style="color:var(--branco)">Sua empresa<br>enfrenta esses <em style="color:var(--champagne)">desafios?</em></h2>
+
 </div>
+
 <p class="desc reveal" style="color:var(--champagne);opacity:.65;align-self:end">Se pelo menos dois desses pontos descrevem a realidade atual do seu RH, a Phoenix Evolution pode estruturar uma solução sob medida para o seu momento de negócio.</p>
+
 </div>
+
 <div class="dores-grid">
+
 <div class="dor reveal"><div class="dor-n">01</div><h4>Turnover elevado</h4><p>Troca constante de pessoas gera custo invisível e desestabiliza a operação.</p></div>
-<div class="dor reveal"><div class="dor-n">02</div><h4>Contratações desalinhadas</h4><p>Dificuldade em atrair profissionais com o perfil certo para a cultura e o negócio.</p></div>
-<div class="dor reveal"><div class="dor-n">03</div><h4>Lideranças despreparadas</h4><p>Gestores sem ferramentas para liderar com consistência e gerar resultado.</p></div>
-<div class="dor reveal"><div class="dor-n">04</div><h4>RH só operacional</h4><p>DP funcionando, mas RH sem estratégia, dados ou visão de negócio.</p></div>
+
+<div class="dor reveal"><div class="dor-n">02</div><h4>Contrata&ccedil;&otilde;es desalinhadas</h4><p>Dificuldade em atrair profissionais com o perfil certo para a cultura e o negócio.</p></div>
+
+<div class="dor reveal"><div class="dor-n">03</div><h4>Lideran&ccedil;as despreparadas</h4><p>Gestores sem ferramentas para liderar com consistência e gerar resultado.</p></div>
+
+<div class="dor reveal"><div class="dor-n">04</div><h4>RH s&oacute; operacional</h4><p>DP funcionando, mas RH sem estratégia, dados ou visão de negócio.</p></div>
+
 <div class="dor reveal"><div class="dor-n">05</div><h4>Crescimento desorganizado</h4><p>A empresa cresce, mas a estrutura de pessoas não acompanha o ritmo.</p></div>
+
 <div class="dor reveal"><div class="dor-n">06</div><h4>Cultura fraca</h4><p>Sem identidade clara, os times perdem engajamento, foco e direção.</p></div>
+
 <div class="dor reveal"><div class="dor-n">07</div><h4>Sem indicadores</h4><p>Decisões de pessoas tomadas sem dados — intuição no lugar de estratégia.</p></div>
-<div class="dor reveal"><div class="dor-n">08</div><h4>Comunicação interna falha</h4><p>Ruídos entre liderança e times comprometem execução e clima organizacional.</p></div>
+
+<div class="dor reveal"><div class="dor-n">08</div><h4>Comunica&ccedil;&atilde;o interna falha</h4><p>Ruídos entre liderança e times comprometem execução e clima organizacional.</p></div>
+
 </div>
+
 </section>
+
  
+
 <div class="div-line" style="background:rgba(17,34,64,.9)"></div>
+
  
+
 <!-- SOBRE -->
+
 <section id="sobre">
+
 <div class="sobre-inner">
+
 <div class="reveal">
+
 <p class="tag">A Consultoria</p>
+
 <h2 class="sec">Autoridade construída<br>em <em>30 anos de mercado.</em></h2>
+
 <p class="sobre-frase">"RH sem estratégia é custo. Com estratégia, é vantagem competitiva."</p>
+
 <p class="sobre-assinatura">Phoenix Evolution &mdash; Design Humano Estratégico</p>
+
 </div>
+
 <div class="reveal">
+
 <div class="nums-row">
+
 <div><div class="nrow-num">30+</div><div class="nrow-lbl">Anos em RH</div></div>
+
 <div><div class="nrow-num">6</div><div class="nrow-lbl">Setores</div></div>
+
 <div><div class="nrow-num">12</div><div class="nrow-lbl">Serviços</div></div>
+
 <div><div class="nrow-num">360°</div><div class="nrow-lbl">Visão de RH</div></div>
+
 </div>
+
 <div class="sobre-bloco">
+
 <div class="sb-label">Especialização</div>
+
 <div class="sb-texto">Consultoria com mais de 30 anos de atuação em RH estratégico e operacional — estruturando departamentos, redesenhando culturas e implantando processos de gestão de pessoas em empresas de diferentes portes e setores. Fomos a primeira função de RH em diversas organizações, construindo estruturas do zero até a maturidade.</div>
+
 </div>
+
 <div class="sobre-bloco">
+
 <div class="sb-label">Setores de Atuação</div>
+
 <div class="areas-wrap">
+
 <span class="area-tag">Construção Civil</span>
+
 <span class="area-tag">Tecnologia</span>
+
 <span class="area-tag">Energia</span>
+
 <span class="area-tag">Varejo</span>
+
 <span class="area-tag">Saúde</span>
+
 <span class="area-tag">Food Service</span>
+
 </div>
+
 </div>
+
 <div class="sobre-bloco">
+
 <div class="sb-label">Competências Centrais</div>
+
 <div class="areas-wrap">
+
 <span class="area-tag">DISC / Profiler</span>
+
 <span class="area-tag">People Analytics</span>
+
 <span class="area-tag">LGPD &amp; Compliance</span>
+
 <span class="area-tag">IA Aplicada ao RH</span>
+
 <span class="area-tag">Neurociência</span>
+
 <span class="area-tag">Cultura Organizacional</span>
+
 </div>
+
 </div>
+
 </div>
+
 </div>
+
 </section>
+
  
+
 <div class="div-line"></div>
+
  
+
 <!-- SERVIÇOS -->
+
 <section id="servicos">
+
 <div class="serv-header">
+
 <div class="reveal">
+
 <p class="tag">Soluções</p>
+
 <h2 class="sec">O que a Phoenix Evolution <em>entrega</em></h2>
+
 </div>
+
 <p class="desc reveal" style="align-self:end">Soluções end-to-end estruturadas para o estágio e o desafio real da sua empresa — do diagnóstico à implantação.</p>
+
 </div>
+
 <div class="serv-grid">
-<div class="serv reveal">
-<div class="serv-n">01</div><h3>Estruturação de RH</h3>
-<p class="serv-dor">Para empresas sem departamento de RH estruturado</p>
-<p>Criação do RH do zero: políticas, processos, ferramentas, indicadores e fluxos alinhados à estratégia do negócio.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20estruturar%20o%20RH%20da%20minha%20empresa." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
+
+<div class="serv reveal"><div class="serv-n">01</div><h3>Estruturação de RH</h3><p class="serv-dor">Para empresas sem departamento de RH estruturado</p><p>Criação do RH do zero: políticas, processos, ferramentas, indicadores e fluxos alinhados à estratégia do negócio.</p><a href="#" onclick="openModal('01');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">02</div><h3>Recrutamento Estratégico</h3><p class="serv-dor">Para reduzir erro de contratação e turnover</p><p>Processos seletivos com metodologia DISC, assessment comportamental e IA para contratar com precisão e consistência.</p><a href="#" onclick="openModal('02');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">03</div><h3>Fit Cultural</h3><p class="serv-dor">Para contratar quem realmente se encaixa</p><p>Avaliação de aderência entre candidatos e a cultura da empresa usando ferramentas comportamentais e mapeamento de valores.</p><a href="#" onclick="openModal('03');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">04</div><h3>Cultura Organizacional</h3><p class="serv-dor">Para empresas com clima fraco ou identidade difusa</p><p>Diagnóstico, design e implementação de cultura: valores, rituais, comunicação interna e engajamento com métricas.</p><a href="#" onclick="openModal('04');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">05</div><h3>Desenvolvimento de Liderança</h3><p class="serv-dor">Para gestores que precisam liderar com resultado</p><p>Formação de líderes com base comportamental, feedback estruturado e desenvolvimento de competências gerenciais.</p><a href="#" onclick="openModal('05');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">06</div><h3>Endomarketing</h3><p class="serv-dor">Para engajar times e fortalecer comunicação interna</p><p>Estratégias que aproximam liderança e times, fortalecem cultura e eliminam ruídos operacionais que comprometem a execução.</p><a href="#" onclick="openModal('06');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">07</div><h3>Avaliação de Desempenho</h3><p class="serv-dor">Para times sem metas claras ou cultura de feedback</p><p>Implantação de ciclos de avaliação, metas e indicadores de performance que orientam decisões de gestão com consistência.</p><a href="#" onclick="openModal('07');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">08</div><h3>Cargos e Salários</h3><p class="serv-dor">Para estruturar carreira e reter talentos</p><p>Estrutura de cargos, grades salariais e política de remuneração que sustentam crescimento e reduzem rotatividade.</p><a href="#" onclick="openModal('08');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">09</div><h3>People Analytics</h3><p class="serv-dor">Para tomar decisões de pessoas com dados</p><p>Implementação de dashboards, indicadores de RH e análise de dados para apoiar decisões estratégicas de gestão de pessoas.</p><a href="#" onclick="openModal('09');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">10</div><h3>Diagnóstico Organizacional</h3><p class="serv-dor">Para entender onde a empresa está e para onde vai</p><p>Análise profunda de pessoas, clima, processos e liderança — com relatório executivo e plano de ação estruturado.</p><a href="#" onclick="openModal('10');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">11</div><h3>Compliance Trabalhista</h3><p class="serv-dor">Para crescer com segurança jurídica e governança</p><p>Processos em conformidade com CLT, LGPD, eSocial e NRs — com estruturação de comitê de ética e políticas internas.</p><a href="#" onclick="openModal('11');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
+<div class="serv reveal"><div class="serv-n">12</div><h3>IA Aplicada ao RH</h3><p class="serv-dor">Para modernizar a operação de gestão de pessoas</p><p>Integração de inteligência artificial em recrutamento, avaliações, análise de perfis e automação de processos de RH.</p><a href="#" onclick="openModal('12');return false;" class="serv-link">Solicitar proposta &#8594;</a></div>
+
 </div>
-<div class="serv reveal">
-<div class="serv-n">02</div><h3>Recrutamento Estratégico</h3>
-<p class="serv-dor">Para reduzir erro de contratação e turnover</p>
-<p>Processos seletivos com metodologia DISC, assessment comportamental e IA para contratar com precisão e consistência.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20de%20apoio%20em%20recrutamento%20estrat%C3%A9gico." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">03</div><h3>Fit Cultural</h3>
-<p class="serv-dor">Para contratar quem realmente se encaixa</p>
-<p>Avaliação de aderência entre candidatos e a cultura da empresa usando ferramentas comportamentais e mapeamento de valores.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20fit%20cultural." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">04</div><h3>Cultura Organizacional</h3>
-<p class="serv-dor">Para empresas com clima fraco ou identidade difusa</p>
-<p>Diagnóstico, design e implementação de cultura: valores, rituais, comunicação interna e engajamento com métricas.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20trabalhar%20a%20cultura%20da%20minha%20empresa." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">05</div><h3>Desenvolvimento de Liderança</h3>
-<p class="serv-dor">Para gestores que precisam liderar com resultado</p>
-<p>Formação de líderes com base comportamental, feedback estruturado e desenvolvimento de competências gerenciais.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20desenvolver%20as%20lideran%C3%A7as%20da%20minha%20empresa." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">06</div><h3>Endomarketing</h3>
-<p class="serv-dor">Para engajar times e fortalecer comunicação interna</p>
-<p>Estratégias que aproximam liderança e times, fortalecem cultura e eliminam ruídos operacionais que comprometem a execução.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20quero%20saber%20sobre%20endomarketing." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-</div>
-<div class="serv reveal">
-<div class="serv-n">07</div><h3>Avaliação de Desempenho</h3>
-<p class="serv-dor">Para times sem metas claras ou cultura de feedback</p>
-<p>Implantação de ciclos de avaliação, metas e indicadores de performance que orientam decisões de gestão com consistência.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20implantar%20avalia%C3%A7%C3%A3o%20de%20desempenho." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">08</div><h3>Cargos e Salários</h3>
-<p class="serv-dor">Para estruturar carreira e reter talentos</p>
-<p>Estrutura de cargos, grades salariais e política de remuneração que sustentam crescimento e reduzem rotatividade.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20estruturar%20cargos%20e%20sal%C3%A1rios." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">09</div><h3>People Analytics</h3>
-<p class="serv-dor">Para tomar decisões de pessoas com dados</p>
-<p>Implementação de dashboards, indicadores de RH e análise de dados para apoiar decisões estratégicas de gestão de pessoas.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20implantar%20people%20analytics." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">10</div><h3>Diagnóstico Organizacional</h3>
-<p class="serv-dor">Para entender onde a empresa está e para onde vai</p>
-<p>Análise profunda de pessoas, clima, processos e liderança — com relatório executivo e plano de ação estruturado.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20de%20um%20diagn%C3%B3stico%20organizacional." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">11</div><h3>Compliance Trabalhista</h3>
-<p class="serv-dor">Para crescer com segurança jurídica e governança</p>
-<p>Processos em conformidade com CLT, LGPD, eSocial e NRs — com estruturação de comitê de ética e políticas internas.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20preciso%20de%20apoio%20em%20compliance%20trabalhista." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-<div class="serv reveal">
-<div class="serv-n">12</div><h3>IA Aplicada ao RH</h3>
-<p class="serv-dor">Para modernizar a operação de gestão de pessoas</p>
-<p>Integração de inteligência artificial em recrutamento, avaliações, análise de perfis e automação de processos de RH.</p>
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20quero%20saber%20como%20a%20IA%20pode%20ajudar%20meu%20RH." target="_blank" class="serv-link">Solicitar proposta &#8594;</a>
-</div>
-</div>
+
 </section>
+
  
+
 <div class="div-line"></div>
+
  
+
 <!-- PROVA SOCIAL -->
+
 <section id="prova">
+
 <div class="prova-inner">
+
 <div class="reveal">
+
 <p class="tag">Credenciais</p>
+
 <h2 class="sec">Experiência real.<br><em>Resultado mensurável.</em></h2>
+
 <p class="desc" style="margin-bottom:1.8rem">Mais de 30 anos atuando em RH estratégico em empresas de construção, energia, varejo, saúde e tecnologia.</p>
+
 <div class="segs-grid">
+
 <div class="seg">Construção Civil</div>
+
 <div class="seg">Energia</div>
+
 <div class="seg">Varejo</div>
+
 <div class="seg">Saúde</div>
+
 <div class="seg">Tecnologia</div>
+
 <div class="seg">Food Service</div>
+
 </div>
+
 </div>
+
 <div class="depoimentos reveal">
-<div class="dep">
-<p class="dep-text">A Phoenix Evolution estruturou nosso RH do zero em menos de três meses. Hoje temos processos claros, indicadores funcionando e um time muito mais engajado com os resultados.</p>
-<p class="dep-autor">Diretor de Operações &middot; Empresa de Infraestrutura, RJ</p>
+
+<div class="dep"><p class="dep-text">A Phoenix Evolution estruturou nosso RH do zero em menos de três meses. Hoje temos processos claros, indicadores funcionando e um time muito mais engajado com os resultados.</p><p class="dep-autor">Diretor de Operações &middot; Empresa de Infraestrutura, RJ</p></div>
+
+<div class="dep"><p class="dep-text">O processo seletivo foi o mais assertivo que já conduzimos. A profissional contratada se encaixou na cultura e entregou resultado desde o primeiro mês.</p><p class="dep-autor">CEO &middot; Empresa de Tecnologia e Serviços</p></div>
+
+<div class="dep"><p class="dep-text">Pela primeira vez temos uma estrutura de cargos e salários que faz sentido para o nosso momento de crescimento. Trouxe clareza onde só havia confusão.</p><p class="dep-autor">Sócio-Diretor &middot; Rede de Farmácias</p></div>
+
 </div>
-<div class="dep">
-<p class="dep-text">O processo seletivo foi o mais assertivo que já conduzimos. A profissional contratada se encaixou na cultura e entregou resultado desde o primeiro mês.</p>
-<p class="dep-autor">CEO &middot; Empresa de Tecnologia e Serviços</p>
+
 </div>
-<div class="dep">
-<p class="dep-text">Pela primeira vez temos uma estrutura de cargos e salários que faz sentido para o nosso momento de crescimento. Trouxe clareza onde só havia confusão.</p>
-<p class="dep-autor">Sócio-Diretor &middot; Rede de Farmácias</p>
-</div>
-</div>
-</div>
+
 </section>
+
  
+
 <!-- CONTATO -->
+
 <section id="contato">
+
 <div class="cont-inner">
+
 <div class="reveal">
+
 <p class="cont-tag">Contato</p>
+
 <h2 class="cont-h2">Vamos conversar sobre os <em>desafios do seu RH?</em></h2>
+
 <p class="cont-desc">Em 24h retornamos com uma proposta de diagnóstico inicial. O primeiro passo é uma conversa direta sobre onde sua empresa está e onde quer chegar.</p>
+
 <div class="channels">
-<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20os%20desafios%20do%20meu%20RH." target="_blank" class="ch">
-<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-<div><div class="ch-lbl">WhatsApp</div><div class="ch-val">(21) 99248-8581</div></div>
-<span class="ch-arr">&#8594;</span>
-</a>
-<a href="mailto:contato@phoenixevolution.com.br" class="ch">
-<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-<div><div class="ch-lbl">E-mail</div><div class="ch-val">contato@phoenixevolution.com.br</div></div>
-<span class="ch-arr">&#8594;</span>
-</a>
-<div class="ch" style="cursor:default;pointer-events:none">
-<div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-<div><div class="ch-lbl">Localização</div><div class="ch-val">Barra da Tijuca &middot; Rio de Janeiro</div></div>
+
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20os%20desafios%20do%20meu%20RH." target="_blank" class="ch"><div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div><div class="ch-lbl">WhatsApp</div><div class="ch-val">(21) 99248-8581</div></div><span class="ch-arr">&#8594;</span></a>
+
+<a href="mailto:contato@phoenixevolution.com.br" class="ch"><div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ch-lbl">E-mail</div><div class="ch-val">contato@phoenixevolution.com.br</div></div><span class="ch-arr">&#8594;</span></a>
+
+<div class="ch" style="cursor:default;pointer-events:none"><div class="ch-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ch-lbl">Localização</div><div class="ch-val">Barra da Tijuca &middot; Rio de Janeiro</div></div></div>
+
 </div>
+
 </div>
-</div>
+
 <div class="reveal">
+
 <p class="form-title">Ou envie uma mensagem</p>
+
 <form onsubmit="handleForm(event)">
+
 <div class="fg"><label>Nome completo</label><input type="text" placeholder="Seu nome" required></div>
+
 <div class="fg"><label>E-mail</label><input type="email" placeholder="voce@empresa.com.br" required></div>
+
 <div class="fg"><label>Empresa</label><input type="text" placeholder="Nome da empresa"></div>
-<div class="fg"><label>Principal desafio</label>
-<select>
-<option value="">Selecione uma área</option>
-<option>Estruturação de RH</option>
-<option>Recrutamento Estratégico</option>
-<option>Cultura Organizacional</option>
-<option>Desenvolvimento de Liderança</option>
-<option>Cargos e Salários</option>
-<option>People Analytics</option>
-<option>Diagnóstico Organizacional</option>
-<option>Compliance Trabalhista</option>
-<option>IA Aplicada ao RH</option>
-<option>Outro</option>
-</select>
-</div>
+
+<div class="fg"><label>Principal desafio</label><select><option value="">Selecione uma área</option><option>Estruturação de RH</option><option>Recrutamento Estratégico</option><option>Cultura Organizacional</option><option>Desenvolvimento de Liderança</option><option>Cargos e Salários</option><option>People Analytics</option><option>Diagnóstico Organizacional</option><option>Compliance Trabalhista</option><option>IA Aplicada ao RH</option><option>Outro</option></select></div>
+
 <div class="fg"><label>Contexto</label><textarea placeholder="Descreva brevemente o desafio da sua empresa..."></textarea></div>
+
 <button type="submit" class="f-btn">Enviar mensagem</button>
+
 </form>
+
 </div>
+
 </div>
+
 </section>
+
  
+
 <footer>
+
 <div class="f-logo">Phoenix Evolution</div>
-<p class="f-slogan">RH que vira resultado de negócio.</p>
+
+<p class="f-slogan">RH que vira resultado de neg&oacute;cio.</p>
+
 <div class="f-links">
+
 <a href="https://wa.me/5521992488581" target="_blank">WhatsApp</a>
+
 <a href="mailto:contato@phoenixevolution.com.br">E-mail</a>
+
 <span class="f-copy">&copy; 2026 Phoenix Evolution &middot; Barra da Tijuca, RJ</span>
+
 </div>
+
 </footer>
+
  
+
+ 
+
+<!-- MODAIS -->
+
+ 
+
+<div class="modal-overlay" id="modal-01" onclick="closeModal('01',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('01',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 01 / 12</div><h2 class="modal-title">Estruturação de RH</h2><p class="modal-subtitle">Construção completa do departamento de RH do zero</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Indicado para empresas em crescimento que ainda não possuem um departamento de RH estruturado, ou que operam com processos informais e precisam de uma base sólida para escalar com segurança.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Diagnóstico da situação atual de RH e DP</li><li>Mapeamento de processos e gaps operacionais</li><li>Política de RH, regulamento interno e código de conduta</li><li>Fluxos de admissão, onboarding, férias e desligamento</li><li>Estrutura de indicadores e painel de métricas de pessoas</li><li>Implantação de ferramentas digitais de gestão de RH</li><li>Treinamento da liderança nos novos processos</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">60 a 90 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Consultoria presencial e remota</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Sob consulta</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20na%20proposta%20de%20Estrutura%C3%A7%C3%A3o%20de%20RH%2E%20Gostaria%20de%20agendar%20uma%20conversa%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Estrutura%C3%A7%C3%A3o%20de%20RH" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-02" onclick="closeModal('02',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('02',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 02 / 12</div><h2 class="modal-title">Recrutamento Estratégico</h2><p class="modal-subtitle">Seleção assertiva com metodologia comportamental e IA</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que precisam contratar com precisão e reduzir o erro de contratação. Utilizamos assessment DISC, entrevistas estruturadas e ferramentas de IA para mapear fit técnico e comportamental.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Briefing estratégico da vaga com a liderança</li><li>Definição de perfil comportamental e competências</li><li>Divulgação multicanal e triagem com apoio de IA</li><li>Aplicação de assessment DISC/Profiler nos finalistas</li><li>Entrevistas estruturadas por competências</li><li>Relatório comparativo dos finalistas com recomendação</li><li>Acompanhamento dos primeiros 30 dias do contratado</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">15 a 30 dias por vaga</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto ou presencial</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por processo seletivo</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20no%20servi%C3%A7o%20de%20Recrutamento%20Estrat%C3%A9gico%2E%20Gostaria%20de%20apresentar%20uma%20vaga%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Recrutamento%20Estrat%C3%A9gico" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-03" onclick="closeModal('03',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('03',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 03 / 12</div><h2 class="modal-title">Fit Cultural</h2><p class="modal-subtitle">Avaliação de aderência entre candidato e cultura da empresa</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Evita contratações tecnicamente competentes mas culturalmente desalinhadas. Mapeamos os valores e comportamentos da empresa e criamos um modelo de avaliação de fit aplicável em qualquer processo seletivo.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Mapeamento dos valores e comportamentos da cultura atual</li><li>Definição do perfil cultural ideal por nível e área</li><li>Criação de ferramenta de avaliação de fit cultural</li><li>Aplicação da ferramenta nos candidatos finalistas</li><li>Relatório de aderência com análise qualitativa</li><li>Guia de uso da ferramenta para a liderança</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">10 a 20 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por mapeamento ou processo</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20na%20avalia%C3%A7%C3%A3o%20de%20Fit%20Cultural%2E%20Gostaria%20de%20entender%20melhor%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Fit%20Cultural" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-04" onclick="closeModal('04',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('04',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 04 / 12</div><h2 class="modal-title">Cultura Organizacional</h2><p class="modal-subtitle">Diagnóstico, design e implementação de cultura</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que cresceram rápido e perderam identidade cultural, ou que nunca formalizaram seus valores. Estruturamos cultura de forma prática — com rituais, comunicação interna e métricas reais de engajamento.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Pesquisa de clima e diagnóstico cultural com times e liderança</li><li>Definição ou revisão de missão, visão e valores</li><li>Design de rituais e práticas culturais</li><li>Plano de comunicação interna e endomarketing</li><li>Treinamento da liderança como agente de cultura</li><li>Painel de indicadores de clima e engajamento</li><li>Relatório executivo com plano de evolução cultural</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">60 a 120 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Presencial e remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Sob consulta</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20no%20projeto%20de%20Cultura%20Organizacional%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Cultura%20Organizacional" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-05" onclick="closeModal('05',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('05',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 05 / 12</div><h2 class="modal-title">Desenvolvimento de Liderança</h2><p class="modal-subtitle">Formação de líderes com base comportamental e resultado</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas com gestores tecnicamente competentes mas que precisam evoluir na liderança de pessoas. Trabalhamos competências gerenciais, feedback, gestão de conflitos e performance de times.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Assessment comportamental DISC de cada líder</li><li>Mapeamento de gaps de liderança por nível</li><li>Programa de desenvolvimento em formato trilha</li><li>Workshops presenciais ou remotos por competência</li><li>Plano de desenvolvimento individual (PDI) por gestor</li><li>Acompanhamento mensal com feedbacks estruturados</li><li>Relatório de evolução ao final do programa</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">90 a 180 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Presencial e remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por programa ou gestor</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20no%20programa%20de%20Desenvolvimento%20de%20Lideran%C3%A7a%2E%20Gostaria%20de%20saber%20mais%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Desenvolvimento%20de%20Lideran%C3%A7a" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-06" onclick="closeModal('06',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('06',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 06 / 12</div><h2 class="modal-title">Endomarketing</h2><p class="modal-subtitle">Comunicação interna estratégica que engaja e direciona</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas onde as informações se perdem, o time não se sente parte do negócio ou a liderança tem dificuldade de engajar as pessoas. Estruturamos canais, cadências e conteúdos de comunicação interna.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Diagnóstico da comunicação interna atual</li><li>Mapeamento de públicos internos e canais ideais</li><li>Estratégia e calendário editorial interno</li><li>Templates de comunicados, murais e e-mails internos</li><li>Plano de campanhas de engajamento e reconhecimento</li><li>Treinamento da liderança em comunicação interna</li><li>Indicadores de alcance e engajamento das ações</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">30 a 60 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto com suporte presencial</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por projeto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20no%20projeto%20de%20Endomarketing%2E%20Gostaria%20de%20conversar%20sobre%20comunica%C3%A7%C3%A3o%20interna%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Endomarketing" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-07" onclick="closeModal('07',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('07',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 07 / 12</div><h2 class="modal-title">Avaliação de Desempenho</h2><p class="modal-subtitle">Ciclos de performance com metas, feedback e desenvolvimento</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que precisam criar uma cultura de performance sem tornar o processo burocrático ou desmotivador. Estruturamos ciclos leves, objetivos e conectados à estratégia do negócio.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Diagnóstico do modelo atual de gestão de performance</li><li>Definição de critérios de avaliação por nível e área</li><li>Implantação de ciclos de avaliação (semestral ou anual)</li><li>Metodologia de definição de metas (OKR ou KPI)</li><li>Treinamento de líderes para condução de feedback</li><li>Plataforma ou formulário digital de avaliação</li><li>Relatório consolidado com plano de ação por colaborador</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">30 a 60 dias de implantação</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto com suporte presencial</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por projeto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20em%20implantar%20Avalia%C3%A7%C3%A3o%20de%20Desempenho%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Avalia%C3%A7%C3%A3o%20de%20Desempenho" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-08" onclick="closeModal('08',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('08',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 08 / 12</div><h2 class="modal-title">Cargos e Salários</h2><p class="modal-subtitle">Estrutura de remuneração que retém talentos e sustenta crescimento</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que pagam por intuição, enfrentam reclamações salariais frequentes ou perdem talentos para o mercado. Criamos uma política salarial justa, competitiva e escalável.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Levantamento e descrição de todos os cargos da empresa</li><li>Classificação por nível, área e complexidade</li><li>Pesquisa salarial de mercado por setor e região</li><li>Estrutura de grades salariais com faixas e progressão</li><li>Política de remuneração e critérios de evolução</li><li>Plano de carreira por área ou família de cargos</li><li>Apresentação executiva para liderança e RH</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">45 a 75 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto com reuniões presenciais</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Sob consulta</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20na%20estrutura%C3%A7%C3%A3o%20de%20Cargos%20e%20Sal%C3%A1rios%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Cargos%20e%20Sal%C3%A1rios" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-09" onclick="closeModal('09',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('09',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 09 / 12</div><h2 class="modal-title">People Analytics</h2><p class="modal-subtitle">Dados de pessoas para decisões estratégicas de negócio</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que tomam decisões de RH sem dados concretos. Estruturamos indicadores, painéis e análises que transformam informações de pessoas em inteligência de negócio.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Mapeamento das fontes de dados de RH disponíveis</li><li>Definição dos KPIs estratégicos de pessoas</li><li>Criação de painel de indicadores (dashboard)</li><li>Análise de turnover, absentismo e performance</li><li>Relatório mensal de people analytics para liderança</li><li>Treinamento do time de RH na leitura dos dados</li><li>Plano de evolução do modelo analítico</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">30 a 60 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por projeto ou mensalidade</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20em%20implantar%20People%20Analytics%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20People%20Analytics" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-10" onclick="closeModal('10',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('10',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 10 / 12</div><h2 class="modal-title">Diagnóstico Organizacional</h2><p class="modal-subtitle">Radiografia completa da estrutura de pessoas e processos</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que sentem que algo não está funcionando, mas não sabem exatamente onde está o problema. O diagnóstico entrega clareza sobre o estado atual e um plano de ação priorizado.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Entrevistas com liderança e amostra de colaboradores</li><li>Análise de processos, estrutura e clima organizacional</li><li>Mapeamento de gaps em cultura, pessoas e operação</li><li>Avaliação de maturidade do RH atual</li><li>Relatório executivo com achados e diagnóstico</li><li>Plano de ação priorizado com prazos e responsáveis</li><li>Apresentação dos resultados para diretoria</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">15 a 30 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Presencial e remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Projeto fixo</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20em%20realizar%20um%20Diagn%C3%B3stico%20Organizacional%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Diagn%C3%B3stico%20Organizacional" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-11" onclick="closeModal('11',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('11',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 11 / 12</div><h2 class="modal-title">Compliance Trabalhista</h2><p class="modal-subtitle">Governança, conformidade e segurança jurídica em RH</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas em crescimento que precisam garantir conformidade com CLT, LGPD, eSocial e NRs. Evita passivos trabalhistas, multas e riscos reputacionais que acompanham o crescimento desordenado.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Auditoria de conformidade trabalhista e eSocial</li><li>Mapeamento de riscos e passivos potenciais</li><li>Adequação de contratos, políticas e regulamentos</li><li>Implantação de política de privacidade (LGPD) para RH</li><li>Estruturação de comitê de ética e canal de denúncias</li><li>Treinamento de líderes e RH em conformidade</li><li>Relatório de conformidade com plano de regularização</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">30 a 60 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto com suporte presencial</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por projeto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20no%20servi%C3%A7o%20de%20Compliance%20Trabalhista%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20Compliance%20Trabalhista" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
+<div class="modal-overlay" id="modal-12" onclick="closeModal('12',event)">
+<div class="modal">
+<div class="modal-header"><button class="modal-close" onclick="closeModal('12',event)" aria-label="Fechar">&times;</button><div class="modal-num">Proposta 12 / 12</div><h2 class="modal-title">IA Aplicada ao RH</h2><p class="modal-subtitle">Inteligência artificial integrada à gestão de pessoas</p></div>
+<div class="modal-body">
+<div class="modal-section"><div class="modal-label">Contexto</div><p class="modal-text">Para empresas que querem modernizar os processos de RH com tecnologia sem perder o elemento humano. Integramos IA de forma prática em recrutamento, avaliações e análise de perfis comportamentais.</p></div>
+<div class="modal-section"><div class="modal-label">Entregáveis</div><ul class="modal-entregaveis"><li>Mapeamento dos processos de RH com potencial de automação</li><li>Seleção e configuração de ferramentas de IA para RH</li><li>Integração de IA no funil de recrutamento e triagem</li><li>Automação de assessments e relatórios comportamentais</li><li>Dashboard de análise de perfis com IA</li><li>Treinamento do time de RH no uso das ferramentas</li><li>Plano de evolução tecnológica de médio prazo</li></ul></div>
+<div class="modal-meta"><div class="modal-meta-item"><div class="modal-meta-lbl">Prazo estimado</div><div class="modal-meta-val">30 a 45 dias</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Formato</div><div class="modal-meta-val">Remoto</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Investimento</div><div class="modal-meta-val">Por projeto ou mensalidade</div></div><div class="modal-meta-item"><div class="modal-meta-lbl">Próximo passo</div><div class="modal-meta-val">Diagnóstico gratuito</div></div></div>
+<a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20tenho%20interesse%20em%20aplicar%20IA%20no%20RH%20da%20minha%20empresa%2E%20Gostaria%20de%20conversar%2E" target="_blank" class="modal-cta-wpp">&#8594; Solicitar esta proposta no WhatsApp</a>
+<a href="mailto:contato@phoenixevolution.com.br?subject=Interesse%20em%20IA%20Aplicada%20ao%20RH" class="modal-cta" style="margin-top:.6rem">Enviar por e-mail</a>
+</div></div></div>
+
 <a href="https://wa.me/5521992488581?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20os%20desafios%20do%20meu%20RH." target="_blank" class="wpp-float" aria-label="WhatsApp">
 <span class="wpp-tip">Vamos conversar sobre seu RH?</span>
 <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
- 
+
 <script>
 window.addEventListener("scroll",function(){
   document.getElementById("nav").classList.toggle("scrolled",window.scrollY>40);
@@ -711,6 +1474,27 @@ function handleForm(e){
     btn.textContent="Enviado com sucesso";
   },700);
 }
+
+function openModal(id){
+  document.getElementById("modal-"+id).classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeModal(id,e){
+  if(!e||e.target===document.getElementById("modal-"+id)||e.target.classList.contains("modal-close")){
+    document.getElementById("modal-"+id).classList.remove("open");
+    document.body.style.overflow="";
+  }
+}
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    document.querySelectorAll(".modal-overlay.open").forEach(function(m){
+      m.classList.remove("open");
+      document.body.style.overflow="";
+    });
+  }
+});
+
 </script>
 </body>
+
 </html>
